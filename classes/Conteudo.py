@@ -3,11 +3,16 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+import sys
 
 
 class Inserir_Conteudo:
 
-    driver = Chrome()
+    def __init__(self, iniciar):
+        if (iniciar == "SIM" or iniciar == "S"):
+            self.driver = Chrome()
+        else:
+            sys.exit()
 
     def abrir(self, site):
         self.driver.get(site)
