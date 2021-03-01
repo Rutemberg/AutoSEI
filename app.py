@@ -1,5 +1,6 @@
 from classes.Conteudo import Inserir_Conteudo
 from SEMANAS.SEMANA import disciplinas, configuracoes
+from util.funcoes import menu
 from datetime import datetime
 from locale import LC_ALL, setlocale
 import os
@@ -7,18 +8,15 @@ import pathlib
 
 setlocale(LC_ALL, 'pt_BR.utf-8')
 
-os.system("cls")
-print("\n\nAUTOSEI\n\n")
-print("1. Inserir/Verificar tudo\n2. Inserir especifica\n3. Verificar disciplinas que faltam\n\n4. Sair\n\n\n")
-
+menu(os, "Inserir/Verificar tudo", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
 opcao = int(input("Digite a opção: "))
 
 if opcao == 2:
     os.system("cls")
     disciplina_codigo = int(input("Digite o código do conteúdo: "))
-    chave = next((index for (index, d) in enumerate(disciplinas)
+    key = next((index for (index, d) in enumerate(disciplinas)
                   if d["codigo_conteudo"] == disciplina_codigo), None)
-    disciplinas = [disciplinas[chave]]
+    disciplinas = [disciplinas[key]]
 
 iniciar = input("Iniciar (Sim/Nao): ")
 iniciar = iniciar.upper()
