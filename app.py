@@ -8,7 +8,7 @@ import pathlib
 
 setlocale(LC_ALL, 'pt_BR.utf-8')
 
-menu(os, "Inserir/Verificar tudo", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
+menu(os, "Inserir/Verificar todas as disciplinas", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
 opcao = int(input("Digite a opção: "))
 
 if opcao == 2:
