@@ -13,7 +13,7 @@ disciplinas = [
         'codigo_disciplina': 1868,
         'nome_disciplina': "Direito da Criança e do Adolescente",
         'professor': "Paula",
-        'codigo_conteudo': 6,
+        'codigo_conteudo': 766,
         'videos': [
             {
                 'titulo': "Introduçao- evoluçao historica parte 1",
@@ -526,6 +526,14 @@ disciplinas = [
         'professor': "João Aragão",
         'codigo_conteudo': 792,
         'videos': [
+            {
+                'titulo': "Conceitos de Direito Eleitoral",
+                'frame': '<iframe src="https://player.vimeo.com/video/518717111" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+            },
+            {
+                'titulo': "Princípios Direito Eleitoral",
+                'frame': '<iframe src="https://player.vimeo.com/video/518718253" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+            },
         ],
     },
 
