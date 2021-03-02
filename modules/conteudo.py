@@ -1,13 +1,15 @@
 from classes.Conteudo import Inserir_Conteudo
-from util.funcoes import menu,criar_pasta
+from util.funcoes import menu, criar_pasta
 from util.log import log
 from locale import LC_ALL, setlocale
 import os
 
+
 def iniciar_insercao(disciplinas, configuracoes):
     setlocale(LC_ALL, 'pt_BR.utf-8')
 
-    menu("Inserir/Verificar todas as disciplinas", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
+    menu("Inserir/Verificar todas as disciplinas",
+         "Inserir disciplina especifica", "Verificar disciplinas que faltam")
     opcao = int(input("Digite a opção: "))
 
     if opcao == 2:
@@ -20,7 +22,6 @@ def iniciar_insercao(disciplinas, configuracoes):
     iniciar = input("Iniciar (Sim/Nao): ")
     iniciar = iniciar.upper()
 
-
     titulo_semana = configuracoes["semana"]
     pasta_atual = os.getcwd()
     pasta_log = criar_pasta("logs", pasta_atual)
@@ -28,7 +29,6 @@ def iniciar_insercao(disciplinas, configuracoes):
 
     arquivo = f"{pasta_semanas}\{titulo_semana}"
     arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam"
-
 
     Processar = Inserir_Conteudo(iniciar)
     Processar.abrir(configuracoes["site"])
@@ -38,7 +38,8 @@ def iniciar_insercao(disciplinas, configuracoes):
     for disciplina in disciplinas:
 
         if len(disciplina["videos"]) == 0 and opcao == 3:
-            log(arquivo_obs, "", f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", False)
+            log(arquivo_obs, "",
+                f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", False)
             # log(arquivo, f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "", "info", True)
             # log(arquivo, "", "Videos indisponiveis !", "warn")
 
@@ -50,7 +51,8 @@ def iniciar_insercao(disciplinas, configuracoes):
             semana_existe = Processar.verificar_conteudo(
                 configuracoes["semana"])
 
-            log(arquivo, f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "", "info", True)
+            log(arquivo,
+                f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "", "info", True)
 
             if semana_existe == 0:
                 if len(disciplina["videos"]) > 0:
@@ -71,9 +73,9 @@ def iniciar_insercao(disciplinas, configuracoes):
 
                         log(arquivo, "", f"Video: {titulo} inserido", "info")
                 else:
-                    log(arquivo_obs, f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", "", True)
+                    log(arquivo_obs,
+                        f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", "", True)
                     log(arquivo, "", "Videos indisponiveis !", "warn")
 
             else:
                 log(arquivo, "", f"{titulo_semana} já inserida !", "info")
-
