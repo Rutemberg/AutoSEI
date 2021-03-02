@@ -13,7 +13,7 @@ disciplinas = [
         'codigo_disciplina': 1868,
         'nome_disciplina': "Direito da Criança e do Adolescente",
         'professor': "Paula",
-        'codigo_conteudo': 766,
+        'codigo_conteudo': 6,
         'videos': [
             {
                 'titulo': "Introduçao- evoluçao historica parte 1",

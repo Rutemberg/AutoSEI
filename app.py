@@ -1,6 +1,6 @@
 from classes.Conteudo import Inserir_Conteudo
-from SEMANAS.SEMANA import disciplinas, configuracoes
-from util.funcoes import menu
+from config.SEMANA import disciplinas, configuracoes
+from util.funcoes import menu,criar_pasta
 from datetime import datetime
 from locale import LC_ALL, setlocale
 import os
@@ -8,7 +8,7 @@ import pathlib
 
 setlocale(LC_ALL, 'pt_BR.utf-8')
 
-menu(os, "Inserir/Verificar todas as disciplinas", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
+menu("Inserir/Verificar todas as disciplinas", "Inserir disciplina especifica", "Verificar disciplinas que faltam")
 opcao = int(input("Digite a opção: "))
 
 if opcao == 2:
@@ -23,14 +23,13 @@ iniciar = iniciar.upper()
 
 
 titulo_semana = configuracoes["semana"]
-caminho_pasta = os.getcwd() + f"\SEMANAS\{titulo_semana}"
-arquivo = f"{caminho_pasta}\{titulo_semana}.txt"
-arquivo_obs = f"{caminho_pasta}\Disciplinas_que_faltam.txt"
+pasta_atual = os.getcwd()
+pasta_log = criar_pasta("logs", pasta_atual)
+pasta_semanas = criar_pasta(titulo_semana, pasta_log)
 
-if pathlib.Path(caminho_pasta).is_dir():
-    print("Usando pasta já criada")
-else:
-    os.mkdir(caminho_pasta)
+arquivo = f"{pasta_semanas}\{titulo_semana}.txt"
+arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam.txt"
+
 
 Processar = Inserir_Conteudo(iniciar)
 Processar.abrir(configuracoes["site"])
