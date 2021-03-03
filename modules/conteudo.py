@@ -27,11 +27,11 @@ def iniciar_insercao(disciplinas, configuracoes):
                         if d["codigo_conteudo"] == disciplina_codigo), None)
             # Substitui a lista de disciplinas pela disciplina encontrada com a chave
             if key != None:
-                log("Sys",
+                log("app",
                     f"Código de conteudo {disciplina_codigo} encontrado", "info")
                 disciplinas = [disciplinas[key]]
             else:
-                log("Sys",
+                log("app",
                     f"Código de conteudo {disciplina_codigo} não encontrado", "warn")
 
     iniciar = input("Iniciar (Sim/Nao): ")
