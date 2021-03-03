@@ -9,6 +9,35 @@ configuracoes = {
 
 
 disciplinas = [
+    # {
+    #     'codigo_disciplina': 1286,
+    #     'nome_disciplina': "Filosofia Geral e Jurídica",
+    #     'professor': "Odair José",
+    #     'codigo_conteudo': 723,
+    #     'videos': [
+    #         {
+    #             'titulo': "Surgimento da Filosofia, Diferenças Entre Filosofia Geral e Filosofia Jurídica",
+    #             'frame': '<iframe src="https://player.vimeo.com/video/518719259" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+    #         },
+    #         {
+    #             'titulo': "Categorias do Pensamento Filosófico",
+    #             'frame': '<iframe src="https://player.vimeo.com/video/518720217" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+    #         },
+    #         {
+    #             'titulo': "Filosofia Clássica, os pensamentos se Sócrates e dos Sofistas",
+    #             'frame': '<iframe src="https://player.vimeo.com/video/518721351" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+    #         },
+    #         {
+    #             'titulo': "Filosofia Clássica, o pensamento de Platão",
+    #             'frame': '<iframe src="https://player.vimeo.com/video/518722117" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+    #         },
+    #         {
+    #             'titulo': "Resolução de Exercícios",
+    #             'frame': '<iframe src="https://player.vimeo.com/video/518721070" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+    #         },
+
+    #     ],
+    # },
     {
         'codigo_disciplina': 1868,
         'nome_disciplina': "Direito da Criança e do Adolescente",
@@ -556,6 +585,10 @@ disciplinas = [
         'professor': "Viviane",
         'codigo_conteudo': 794,
         'videos': [
+            {
+                'titulo': "revisão da aula 01 e saudações",
+                'frame': '<iframe src="https://player.vimeo.com/video/518770279" width="640" height="1138" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+            },
         ],
     },
 

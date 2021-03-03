@@ -4,8 +4,8 @@ from locale import LC_ALL, setlocale
 setlocale(LC_ALL, 'pt_BR.utf-8')
 
 
-def log(nome_do_arquivo, nome_evento, mensagem, modo, titulo=False):
-    logger = logging.getLogger(f"{nome_evento}")
+def log(nome_do_arquivo, mensagem, modo, titulo=False):
+    logger = logging.getLogger(f"{mensagem}")
     logger.setLevel(logging.DEBUG)
 
     ch = logging.StreamHandler()

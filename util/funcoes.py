@@ -1,5 +1,6 @@
 import os
 import pathlib
+from util.log import log
 
 def menu(*args):
     os.system("cls")
@@ -12,11 +13,12 @@ def menu(*args):
 def criar_pasta(nome_da_pasta, pasta_atual):
     caminho_pasta = os.path.join(pasta_atual, nome_da_pasta)
     if pathlib.Path(caminho_pasta).is_dir():
-        # print(f"Pasta {nome_da_pasta} já criada!")
+        log("Sys", f"A pasta {nome_da_pasta} já existe", "info")
         return caminho_pasta
     else:
         try:
             os.mkdir(caminho_pasta)
+            log("Sys", f"Psata {nome_da_pasta} criada", "info")
             return caminho_pasta
         except OSError as error:
             print(error)
