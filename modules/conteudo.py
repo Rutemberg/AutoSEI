@@ -46,6 +46,7 @@ def iniciar_insercao(disciplinas, configuracoes):
 
     arquivo = f"{pasta_semanas}\{titulo_semana}"
     arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam"
+    arquivo_videos_sem_titulos = f"{pasta_semanas}\Videos_sem_temas"
 
     Processar = Inserir_Conteudo(iniciar)  # Iniciar caso a resposta seja sim
     Processar.abrir(configuracoes["site"])  # Abre o site
@@ -56,33 +57,36 @@ def iniciar_insercao(disciplinas, configuracoes):
     for disciplina in disciplinas:  # For para percorrer as disciplinas
 
         # Se nao houver videos e a opcao for 3 fara um log com as disciplinas que faltam
-        if len(disciplina["videos"]) == 0 and opcao == 3:
+        if [x for x in disciplina["videos"] if x['frame'] == ''] and opcao == 3:
             log(arquivo_obs,
-                f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", False)
+                f"*{disciplina['professor']}* - {disciplina['nome_disciplina']}", "warn", True)
             # log(arquivo, f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "", "info", True)
             # log(arquivo, "", "Videos indisponiveis !", "warn")
 
-        # Se opcao for 1 ou 2 fara o processo de insercao
+         # Se opcao for 1 ou 2 fara o processo de insercao
         elif opcao == 1 or opcao == 2:
-            # Pesquisa a disciplina pela url e codigo
-            Processar.pesquisar_conteudo(
-                configuracoes["url_conteudo"], disciplina["codigo_conteudo"])
-            # Aguarda o carregamento do sistema
-            Processar.aguardar_processo()
-            # Seleciona a disciplina listada
-            Processar.selecionar_disciplina()
-            # Verifica se a semana em questão existe
-            semana_existe = Processar.verificar_conteudo(
-                configuracoes["semana"])
 
             # Abre um arquivo de log e insere o titulo da disciplina
             log(arquivo,
-                f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "info", True)
+                f"\n\n{disciplina['professor']} - {disciplina['nome_disciplina']}", "info", True)
 
-            # Se a semana nao existir prossiga com a inserção
-            if semana_existe == 0:
-                # Se existir videos para serem lançados prossiga com a inserção
-                if len(disciplina["videos"]) > 0 and [x for x in disciplina["videos"] if x['frame'] != '']:
+            # Se existir videos para serem lançados prossiga com a inserção
+            if [x for x in disciplina["videos"] if x['frame'] != '']:
+
+                # Pesquisa a disciplina pela url e codigo
+                Processar.pesquisar_conteudo(
+                    configuracoes["url_conteudo"], disciplina["codigo_conteudo"])
+                # Aguarda o carregamento do sistema
+                Processar.aguardar_processo()
+                # Seleciona a disciplina listada
+                Processar.selecionar_disciplina()
+                # Verifica se a semana em questão existe
+                semana_existe = Processar.verificar_conteudo(
+                    configuracoes["semana"])
+
+                # Se a semana nao existir prossiga com a inserção
+                if semana_existe == 0:
+
                     cont_titulo_video = 0
                     # Insere a semana
                     Processar.inserir_semana(configuracoes["semana"])
@@ -91,9 +95,15 @@ def iniciar_insercao(disciplinas, configuracoes):
                     for video in disciplina["videos"]:
 
                         cont_titulo_video += 1
-                        # Se nao houver titulo será inserido um titulo generico com contador
-                        titulo = video["titulo"] if video[
-                            "titulo"] != '' else f'VIDEO {cont_titulo_video}'
+
+                        if video["titulo"] != '':
+                            titulo = video["titulo"]
+                        else:
+                            titulo = f'VIDEO {cont_titulo_video}'
+                            log(arquivo_videos_sem_titulos,
+                                f"*{disciplina['professor']}* - {disciplina['nome_disciplina']} - {titulo} sem tema", "warn", True, False)
+                            log(arquivo,
+                                f"{disciplina['professor']} - {disciplina['nome_disciplina']} - {titulo} sem tema", "warn")
 
                         # Adiciona o video
                         Processar.adicionar_video()
@@ -104,12 +114,13 @@ def iniciar_insercao(disciplinas, configuracoes):
 
                         # Cria ou abre o log informando
                         log(arquivo, f"Video: {titulo} inserido", "info")
-                # Se não existir videos para serem lançados
+                        # Se a semana já existir
                 else:
-                    # Cria ou abre o log informando em dois arquivos
-                    log(arquivo_obs,
-                        f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "warn", True)
-                    log(arquivo, "Videos indisponiveis !", "warn")
-            # Se a semana já existir
+                    log(arquivo, f"{titulo_semana} já inserida !", "info")
+
+            # Se não existir videos para serem lançados
             else:
-                log(arquivo, f"{titulo_semana} já inserida !", "info")
+                # Cria ou abre o log informando em dois arquivos
+                log(arquivo_obs,
+                    f"*{disciplina['professor']}* - {disciplina['nome_disciplina']}", "warn", True, False)
+                log(arquivo, "Videos indisponiveis !", "warn")

@@ -4,7 +4,7 @@ configuracoes = {
     "url_conteudo": "https://sei.institutoprocessus.com.br/visaoAdministrativo/ead/conteudoCons.xhtml",
     "usuario": "luizfelipe",
     "senha": "priprioutfit",
-    "semana": "SEMANA 3"
+    "semana": "SEMANA 5"
 }
 
 
@@ -18,7 +18,7 @@ disciplinas = [
             {
                 'titulo': "",
                 'frame': '',
-            },
+            }
 
         ],
     },
@@ -342,8 +342,8 @@ disciplinas = [
         'codigo_conteudo': 795,
         'videos': [
             {
-                      'titulo': "",
-                      'frame': '',
+                'titulo': "",
+                'frame': '',
             },
         ],
     },
