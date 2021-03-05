@@ -40,13 +40,14 @@ def iniciar_insercao(disciplinas, configuracoes):
     titulo_semana = configuracoes["semana"]
     pasta_atual = os.getcwd()  # Pega a localizacao da pasta atual
 
+    if iniciar == "SIM":
     # Funcao criar_pasta(nome, path) para criar pasta com o nome e a localizacao atual
-    pasta_log = criar_pasta("logs", pasta_atual)
-    pasta_semanas = criar_pasta(titulo_semana, pasta_log)
+        pasta_log = criar_pasta("logs", pasta_atual)
+        pasta_semanas = criar_pasta(titulo_semana, pasta_log)
 
-    arquivo = f"{pasta_semanas}\{titulo_semana}"
-    arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam"
-    arquivo_videos_sem_titulos = f"{pasta_semanas}\Videos_sem_temas"
+        arquivo = f"{pasta_semanas}\{titulo_semana}"
+        arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam"
+        arquivo_videos_sem_titulos = f"{pasta_semanas}\Videos_sem_temas"
 
     Processar = Inserir_Conteudo(iniciar)  # Iniciar caso a resposta seja sim
     Processar.abrir(configuracoes["site"])  # Abre o site
