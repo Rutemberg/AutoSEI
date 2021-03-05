@@ -4,7 +4,7 @@ configuracoes = {
     "url_conteudo": "https://sei.institutoprocessus.com.br/visaoAdministrativo/ead/conteudoCons.xhtml",
     "usuario": "luizfelipe",
     "senha": "priprioutfit",
-    "semana": "SEMANA 3"
+    "semana": "SEMANA 01"
 }
 
 

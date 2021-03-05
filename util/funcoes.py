@@ -18,7 +18,7 @@ def criar_pasta(nome_da_pasta, pasta_atual):
     else:
         try:
             os.mkdir(caminho_pasta)
-            log("app", f"Psata {nome_da_pasta} criada", "info")
+            log("app", f"Pasta {nome_da_pasta} criada", "info")
             return caminho_pasta
         except OSError as error:
             print(error)

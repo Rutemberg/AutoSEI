@@ -28,7 +28,7 @@ def iniciar_insercao(disciplinas, configuracoes):
             # Substitui a lista de disciplinas pela disciplina encontrada com a chave
             if key != None:
                 log("app",
-                    f"Código de conteudo {disciplina_codigo} encontrado", "info")
+                    f"Disciplina {disciplinas[key]['nome_disciplina']} encontrada", "info")
                 disciplinas = [disciplinas[key]]
             else:
                 log("app",
@@ -82,7 +82,7 @@ def iniciar_insercao(disciplinas, configuracoes):
             # Se a semana nao existir prossiga com a inserção
             if semana_existe == 0:
                 # Se existir videos para serem lançados prossiga com a inserção
-                if len(disciplina["videos"]) > 0:
+                if len(disciplina["videos"]) > 0 and [x for x in disciplina["videos"] if x['frame'] != '']:
                     cont_titulo_video = 0
                     # Insere a semana
                     Processar.inserir_semana(configuracoes["semana"])
