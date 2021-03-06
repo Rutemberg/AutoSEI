@@ -9,11 +9,8 @@ import sys
 class Inserir_Conteudo:
 
     # Inicia o driver caso a resposta seja sim ou s
-    def __init__(self, iniciar):
-        if (iniciar == "SIM" or iniciar == "S"):
-            self.driver = Chrome()
-        else:
-            sys.exit()
+    def __init__(self):
+        self.driver = Chrome()
 
     # abre o site pela url
     def abrir(self, url):
@@ -94,3 +91,84 @@ class Inserir_Conteudo:
         self.driver.execute_script(
             'document.getElementById("formNovaPagina:salvar").click()')
 
+
+class Inserir_Prova(Inserir_Conteudo):
+
+    def __init__(self):
+        super().__init__()
+
+    def adicionar_prova(self):
+        self.driver.find_elements_by_xpath(
+        "//*[@title='Adicionar Página']")[-1].click()
+
+    def inserir_informaçoes(self, titulo, informacao):
+
+        # Script para inserir o valor em um documento por innerHTML
+        self.driver.execute_script(
+            'document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = ' + f"`{informacao}`")
+
+        # Escreve o titulo no input encontrado
+        titulo_prova = self.driver.find_element_by_id("formNovaPagina:titulo")
+        titulo_prova.send_keys(titulo)
+
+        self.driver.execute_script(
+            'document.getElementById("formNovaPagina:salvar").click()')
+    
+    def editar_conteudo(self):
+        self.driver.find_elements_by_xpath(
+            "//*[@title='Editar']")[-1].click()
+    
+    def adicionar_avaliacao_online(self):
+        self.driver.find_element_by_id("form:addPosterior").click()
+        id_elemento = self.driver.find_elements_by_xpath("//*[@title='Avalição Online']")[-1].get_attribute("id")
+        self.driver.execute_script(f'document.getElementById("{id_elemento}").click()')
+    
+    def adicionar_valor_por_id(self, id_elemento, valor):
+        input_valor = self.driver.find_element_by_id(id_elemento)
+        input_valor.send_keys(valor)
+    
+    def adicionar_valor_por_path(self, path, valor):
+        input_valor = self.driver.find_element_by_xpath(path)
+        input_valor.send_keys(valor)
+    
+    def selecionar_opcao(self, id_elemento, valor):
+        selecionar_por = Select(self.driver.find_element_by_id(id_elemento))
+        selecionar_por.select_by_value(valor)
+
+    def selecionar_opcao_por_nome(self, nome_elemento, valor):
+        selecionar_por = Select(self.driver.find_element_by_name(nome_elemento))
+        selecionar_por.select_by_value(valor)
+    
+    def click_opcao_id(self, id_elemento):
+        selecionar = self.driver.find_element_by_id(id_elemento)
+        selecionar.click()
+    
+    def inserir_descricao(self, descricao):
+        self.driver.execute_script(f'document.getElementById("formAddRecursoEducacional:textoAvaliacaoOnline").innerHTML = `{descricao}`')
+
+    def limpar_campo(self, id_elemento):
+        limpar = self.driver.find_element_by_id(id_elemento)
+        limpar.clear()
+    
+    def questoes(self, nivel, qtd, valor):
+        if nivel == "facil":
+            dificuldade = "formAddRecursoEducacional:quantidadeNivelQuestaoFacil"
+            valor_por_q = "formAddRecursoEducacional:notaPorQuestaoNivelFacil"
+        elif nivel == "medio":
+            dificuldade = "formAddRecursoEducacional:quantidadeNivelQuestaoMedio"
+            valor_por_q = "formAddRecursoEducacional:notaPorQuestaoNivelMedio"
+            
+        elif nivel == "dificil":
+            id_elemento = self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/table/tbody/tr/td/table/tbody/tr[17]/td/div/div[2]/div[4]/div/form/div[2]/div[1]/div/div[2]/table[1]/tbody/tr[1]/td[2]/span/input").get_attribute("id")
+            dificuldade = id_elemento
+            valor_por_q = "formAddRecursoEducacional:notaPorQuestaoNivelDificil"
+           
+
+        self.driver.execute_script(f'''document.getElementById("{dificuldade}").value = {qtd};
+  document.getElementById("{valor_por_q}").value = "{valor}";
+  document.getElementById("{dificuldade}").onchange();''')
+
+    
+    def salvar_prova(self):
+        id_elemento = self.driver.find_element_by_xpath("/html/body/div[1]/div[2]/table/tbody/tr/td/table/tbody/tr[17]/td/div/div[2]/div[4]/div/form/table[2]/tbody/tr[3]/td/table/tbody/tr/td/input[1]").get_attribute("id")
+        self.driver.execute_script(f'document.getElementById("{id_elemento}").click()')
