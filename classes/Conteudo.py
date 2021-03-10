@@ -82,7 +82,7 @@ class Inserir_Conteudo:
 
         # Script para inserir o valor em um documento por innerHTML
         self.driver.execute_script(
-            'document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = ' + f"`{frame}`")
+            'document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = ' + f'`<iframe src="https://player.vimeo.com/video/{frame}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`')
 
         # Escreve o titulo no input encontrado
         titulo_video = self.driver.find_element_by_id("formNovaPagina:titulo")

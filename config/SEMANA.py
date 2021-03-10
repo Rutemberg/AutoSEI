@@ -4,11 +4,12 @@ configuracoes = {
     "url_conteudo": "https://sei.institutoprocessus.com.br/visaoAdministrativo/ead/conteudoCons.xhtml",
     "usuario": "luizfelipe",
     "senha": "priprioutfit",
-    "semana": "SEMANA 3"
+    "semana": "SEMANA 4"
 }
 
 
 disciplinas = [
+    
     {
         'codigo_disciplina': 1868,
         'nome_disciplina': "Direito da Criança e do Adolescente",
@@ -17,11 +18,27 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "Sistemas de proteçao x sistema da situação irregular.",
-                'frame': '<iframe src="https://player.vimeo.com/video/519327196" width="640" height="363" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+                'frame': 519327196,
             },
             {
-                'titulo': "Sistemas de proteçao x sistema da situação irregular II",
-                'frame': '<iframe src="https://player.vimeo.com/video/519328178" width="640" height="382" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+                'titulo': "Sistemas de proteçao x sistema da situação irregular.",
+                'frame': 519327196,
+            },
+            {
+                'titulo': "Sistemas de proteçao x sistema da situação irregular.",
+                'frame': 519327196,
+            },
+            {
+                'titulo': "Sistemas de proteçao x sistema da situação irregular.",
+                'frame': 519327196,
+            },
+            {
+                'titulo': "Sistemas de proteçao x sistema da situação irregular.",
+                'frame': 519327196,
+            },
+            {
+                'titulo': "Sistemas de proteçao x sistema da situação irregular.",
+                'frame': 519327196,
             },
 
         ],
