@@ -118,6 +118,8 @@ def iniciar_insercao(disciplinas, configuracoes):
                             # Cria ou abre o log informando
                             log(arquivo, f"Video: {titulo} inserido", "info")
                             # Se a semana já existir
+                        log(arquivo_videos_sem_titulos,
+                                    f" ", "warn", True, False)
                     else:
                         log(arquivo, f"{titulo_semana} já inserida !", "info")
 

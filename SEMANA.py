@@ -17,7 +17,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
 
         ],
@@ -31,7 +31,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -44,7 +44,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -57,7 +57,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -70,7 +70,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -83,7 +83,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -96,7 +96,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -109,7 +109,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -122,7 +122,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -135,7 +135,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -148,7 +148,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -161,7 +161,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -174,7 +174,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -187,7 +187,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -200,7 +200,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -213,7 +213,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -226,7 +226,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -239,7 +239,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -252,7 +252,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -265,7 +265,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -278,7 +278,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -291,7 +291,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -304,7 +304,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -317,7 +317,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -330,7 +330,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -343,7 +343,7 @@ disciplinas = [
         'videos': [
             {
                       'titulo': "",
-                      'frame': ,
+                      'frame': "",
             },
         ],
     },
@@ -356,7 +356,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -369,7 +369,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -382,7 +382,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -395,7 +395,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -408,7 +408,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -421,7 +421,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -434,7 +434,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -447,7 +447,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -460,7 +460,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
@@ -473,7 +473,7 @@ disciplinas = [
         'videos': [
             {
                 'titulo': "",
-                'frame': ,
+                'frame': "",
             },
         ],
     },
