@@ -4,7 +4,7 @@ from locale import LC_ALL, setlocale
 setlocale(LC_ALL, 'pt_BR.utf-8')
 
 
-def log(nome_do_arquivo, mensagem, tipo, titulo=False, console=True):
+def log(nome_do_arquivo, mensagem, tipo, titulo=False, console=True, modo="a"):
     logger = logging.getLogger(f"{mensagem}")
     logger.setLevel(logging.DEBUG)
 
@@ -15,7 +15,7 @@ def log(nome_do_arquivo, mensagem, tipo, titulo=False, console=True):
         logger.removeHandler(ch)
 
     fl = logging.FileHandler(
-        filename=f"{nome_do_arquivo}.log", encoding='utf-8')
+        filename=f"{nome_do_arquivo}.log", encoding='utf-8', mode=modo)
     fl.setLevel(logging.DEBUG)
 
     if titulo == True:

@@ -1,15 +1,19 @@
 # importando a classe Inserir_Conteudo
 from classes.Conteudo import Inserir_Conteudo
 from util.funcoes import menu, criar_pasta  # funcao de criacao de menu e pasta
-from util.log import log  # funcao de criacao de logs
+from util.log import log  # funcao de criacao de logs.
 from locale import LC_ALL, setlocale
 import os
 import sys
+from datetime import datetime, timedelta
 
 # funcao de insercao dos conteudos das disciplinas
 
 
 def iniciar_insercao(disciplinas, configuracoes):
+    agora = datetime.now()
+    hora_inicial = agora.strftime("%d/%m/%Y %H:%M:%S")
+
     setlocale(LC_ALL, 'pt_BR.utf-8')
 
     # criacao do menu
@@ -29,7 +33,7 @@ def iniciar_insercao(disciplinas, configuracoes):
             # Substitui a lista de disciplinas pela disciplina encontrada com a chave
             if key != None:
                 log("app",
-                    f"Disciplina {disciplinas[key]['nome_disciplina']} encontrada", "info")
+                    f"Disciplina: {disciplinas[key]['professor']} - {disciplinas[key]['nome_disciplina']} encontrada", "info")
                 disciplinas = [disciplinas[key]]
             else:
                 log("app",
@@ -47,7 +51,7 @@ def iniciar_insercao(disciplinas, configuracoes):
         pasta_semanas = criar_pasta(titulo_semana, pasta_log)
 
         arquivo = f"{pasta_semanas}\{titulo_semana}"
-        arquivo_obs = f"{pasta_semanas}\Disciplinas_que_faltam"
+        Disciplinas_que_faltam = f"{pasta_semanas}\Disciplinas_que_faltam"
         arquivo_videos_sem_titulos = f"{pasta_semanas}\Videos_sem_temas"
 
         # Iniciar caso a resposta seja sim
@@ -61,7 +65,7 @@ def iniciar_insercao(disciplinas, configuracoes):
 
             # Se nao houver videos e a opcao for 3 fara um log com as disciplinas que faltam
             if [x for x in disciplina["videos"] if x['frame'] == ''] and opcao == 3:
-                log(arquivo_obs,
+                log(Disciplinas_que_faltam,
                     f"*{disciplina['professor']}* - {disciplina['nome_disciplina']}", "warn", True)
                 # log(arquivo, f"{disciplina['professor']} - {disciplina['nome_disciplina']}", "", "info", True)
                 # log(arquivo, "", "Videos indisponiveis !", "warn")
@@ -118,16 +122,23 @@ def iniciar_insercao(disciplinas, configuracoes):
                             # Cria ou abre o log informando
                             log(arquivo, f"Video: {titulo} inserido", "info")
                             # Se a semana já existir
-                        log(arquivo_videos_sem_titulos,
-                                    f" ", "warn", True, False)
                     else:
                         log(arquivo, f"{titulo_semana} já inserida !", "info")
 
                 # Se não existir videos para serem lançados
                 else:
                     # Cria ou abre o log informando em dois arquivos
-                    log(arquivo_obs,
-                        f"*{disciplina['professor']}* - {disciplina['nome_disciplina']}", "warn", True, False)
+                    log(Disciplinas_que_faltam,
+                        f"*{disciplina['professor']}* - {disciplina['nome_disciplina']}", "warn", True, False, modo="w")
                     log(arquivo, "Videos indisponiveis !", "warn")
     else:
         sys.exit()
+
+    agora = datetime.now()
+    hora_final = agora.strftime("%d/%m/%Y %H:%M:%S")
+    
+    hora_inicial= datetime.strptime(hora_inicial, "%d/%m/%Y %H:%M:%S")
+    hora_final = datetime.strptime(hora_final, "%d/%m/%Y %H:%M:%S")
+
+    dif = hora_final - hora_inicial
+    print(f"\n\n\nTempo de execução - {dif}")

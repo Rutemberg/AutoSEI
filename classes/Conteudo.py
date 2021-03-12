@@ -18,7 +18,7 @@ class Inserir_Conteudo:
     
     # Aguardar ate que a mensagem de loading suma
     def aguardar_processo(self):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 60)
         # Aguarda até que o elemento(loading do sistema) suma da tela
         wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'rf-st-start')))
         

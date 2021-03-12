@@ -1,7 +1,17 @@
 from modules.conteudo import iniciar_insercao
 from modules.prova import iniciar_insercao_prova
-from config.semana import disciplinas, configuracoes #Arquivo de configuraçao e lista de disciplinas
-from config.prova import configuracao_prova
+import json
+import os
+
+path = os.getcwd()
+
+with open(f"{path}/config/config.json", encoding="utf8") as file:
+    configuracoes = file.read()
+    configuracoes = json.loads(configuracoes)
+
+with open(f"{path}/config/semana.json", encoding="utf8") as file:
+    disciplinas = file.read()
+    disciplinas = json.loads(disciplinas)
 
 
 print(f"\nAUTOSEI\n\n")
@@ -15,7 +25,5 @@ else:
     # iniciar_insercao_prova(disciplinas, configuracoes, configuracao_prova)
     pass
 
-# Chamando a funcao iniciar insercao para iniciar o app
-# iniciar_insercao(disciplinas, configuracoes)
-# iniciar_insercao_prova(disciplinas, configuracoes, configuracao_prova)
+
 
