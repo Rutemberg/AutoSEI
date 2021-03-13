@@ -1,6 +1,6 @@
 # importando a classe Inserir_Conteudo
 from classes.Conteudo import Inserir_Conteudo
-from util.funcoes import menu, criar_pasta  # funcao de criacao de menu e pasta
+from util.funcoes import menu, criar_pasta, tempo  # funcao de criacao de menu e pasta
 from util.log import log  # funcao de criacao de logs.
 from locale import LC_ALL, setlocale
 import os
@@ -17,8 +17,8 @@ def iniciar_insercao(disciplinas, configuracoes):
     setlocale(LC_ALL, 'pt_BR.utf-8')
 
     # criacao do menu
-    menu("Inserir/Verificar todas as disciplinas",
-         "Inserir disciplina especifica", "Verificar disciplinas que faltam")
+    menu("| Inserir/Verificar todas as disciplinas",
+         "| Inserir disciplina especifica", "| Verificar disciplinas que faltam")
     opcao = int(input("Digite a opção: "))
 
     # Se a opcao do menu for == 2 aramazenara o codigo em uma variavel
@@ -39,7 +39,7 @@ def iniciar_insercao(disciplinas, configuracoes):
                 log("app",
                     f"Código de conteudo {disciplina_codigo} não encontrado", "warn")
 
-    iniciar = input("Iniciar (Sim/Nao): ")
+    iniciar = input("\nIniciar (Sim/Nao): ")
     iniciar = iniciar.upper()
 
     titulo_semana = configuracoes["semana"]
@@ -136,9 +136,5 @@ def iniciar_insercao(disciplinas, configuracoes):
 
     agora = datetime.now()
     hora_final = agora.strftime("%d/%m/%Y %H:%M:%S")
-    
-    hora_inicial= datetime.strptime(hora_inicial, "%d/%m/%Y %H:%M:%S")
-    hora_final = datetime.strptime(hora_final, "%d/%m/%Y %H:%M:%S")
-
-    dif = hora_final - hora_inicial
-    print(f"\n\n\nTempo de execução - {dif}")
+    diferenca = tempo(hora_inicial, hora_final)
+    log("app",f"\n\nTempo de execução - {diferenca}", "info", True)

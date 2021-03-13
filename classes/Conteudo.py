@@ -1,4 +1,5 @@
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,7 +11,10 @@ class Inserir_Conteudo:
 
     # Inicia o driver caso a resposta seja sim ou s
     def __init__(self):
-        self.driver = Chrome()
+        self.options = Options()
+        self.options.add_argument('--log-level=2')
+        self.driver = Chrome(chrome_options=self.options)
+
 
     # abre o site pela url
     def abrir(self, url):

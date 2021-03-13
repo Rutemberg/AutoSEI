@@ -1,6 +1,7 @@
 import os
 import pathlib
 from util.log import log
+from datetime import datetime
 
 def menu(*args):
     os.system("cls")
@@ -23,3 +24,10 @@ def criar_pasta(nome_da_pasta, pasta_atual):
         except OSError as error:
             print(error)
 
+def tempo(hora_inicial, hora_final):
+    hora_inicial= datetime.strptime(hora_inicial, "%d/%m/%Y %H:%M:%S")
+    hora_final = datetime.strptime(hora_final, "%d/%m/%Y %H:%M:%S")
+
+    dif = hora_final - hora_inicial
+
+    return dif

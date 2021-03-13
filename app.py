@@ -15,8 +15,8 @@ with open(f"{path}/config/semana.json", encoding="utf8") as file:
 
 
 print(f"\nAUTOSEI\n\n")
-print("1 - Videos")
-print("2 - Provas (Ainda em construção)")
+print("| 1 - Videos")
+print("| 2 - Provas (Ainda em construção)")
 opcao = int(input("\n\nSelecione uma opção: "))
 
 if opcao == 1:
